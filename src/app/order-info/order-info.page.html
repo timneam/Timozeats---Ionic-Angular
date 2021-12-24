@@ -1,0 +1,37 @@
+<ion-content style="text-align: center; background-color: white;">
+    <ion-row>
+        <ion-col>
+            <ion-card style="height: 70px; width: 1000px; margin-left: 250px; margin-top: 110px;">
+                <h1>
+                    Order Information
+                </h1>
+            </ion-card>
+            <ion-card style="height: 550px; width: 1000px; margin-left: 250px;">
+                <form [formGroup]="updateCustomerOrderForm">
+                    <p>Tracking Number</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="trackingNumber" value="{{ orderDetails.trackingNumber }}"></ion-input>
+                    </ion-item>
+                    <p>Status</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="status" value="{{ orderDetails.status }}"></ion-input>
+                    </ion-item>
+                    <p>Customer Name</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="customerName" value="{{ orderDetails.customerName }}"></ion-input>
+                    </ion-item>
+                    <p>Customer Phone Number</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="customerPhoneNumber" value="{{ orderDetails.customerPhoneNumber }}"></ion-input>
+                    </ion-item>
+                    <p>Customer Address</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="customerAddress" value="{{ orderDetails.customerAddress }}"></ion-input>
+                    </ion-item>
+                </form>
+                <br>
+                <ion-button (click)="onUpdateOrder()">Update Order</ion-button>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>

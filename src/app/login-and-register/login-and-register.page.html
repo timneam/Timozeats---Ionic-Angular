@@ -1,0 +1,67 @@
+<ion-content style="text-align: center; background-color: white;">
+    <ion-row style="margin-top: 160px;">
+        <ion-col size="6">
+            <ion-card style="background-color: white; width: 600px; margin-left: 150px;">
+                <p>Login</p>
+            </ion-card>
+            <ion-card style="height: 400px; background-color: white; width: 600px; margin-left: 150px;">
+                <form [formGroup]="loginForm">
+                    <ion-item lines="full">
+                        <ion-label position="floating">Username</ion-label>
+                        <ion-input type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item lines="full">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input type="password" required></ion-input>
+                    </ion-item>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-button type="submit" color="danger" expand="block" style="margin-top: 120px;" (click)="onSignIn()">Sign In</ion-button>
+                            <br>
+                            <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card style="background-color: white; width: 600px; margin-right: 70px;">
+                <p>Register</p>
+            </ion-card>
+            <ion-card style="height: 400px; background-color: white; width: 600px; margin-right: 70px;">
+                <form [formGroup]="newUserForm">
+                    <ion-item lines="full">
+                        <ion-label position="floating">Username</ion-label>
+                        <ion-input type="text" required formControlName="username"></ion-input>
+                    </ion-item>
+
+                    <ion-item lines="full">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input type="password" required formControlName="password"></ion-input>
+                    </ion-item>
+
+                    <ion-item lines="full">
+                        <ion-label position="floating">Role</ion-label>
+                        <ion-input type="text" required formControlName="role"></ion-input>
+                    </ion-item>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-button type="submit" color="danger" expand="block" style="margin-top: 10px;" (click)="onSignUp()">Sign Up</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: 600px;">
+        <ion-button type="submit" expand="block" style="margin-top: 10px;" (click)="loginAsGuest()">Login As Guest</ion-button>
+        <ion-button type="submit" expand="block" style="margin-top: 10px;" (click)="loginAsAdmin()">Login As Admin</ion-button>
+    </ion-row>
+</ion-content>

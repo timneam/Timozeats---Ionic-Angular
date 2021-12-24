@@ -1,0 +1,37 @@
+<ion-header collapse="condense">
+</ion-header>
+
+<ion-content style="text-align: center;">
+    <ion-row style="margin-top: 110px; margin-left: 55px;">
+        <ion-searchbar style="width: 800px;  margin-left: 320px;" [(ngModel)]="filterTerm"></ion-searchbar>
+    </ion-row>
+    <ion-row style="margin-left: 130px; width: 1290px; ">
+        <ion-col>
+            <ion-card style="background-color:white">
+                <h1>Menu</h1>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: 55px;">
+        <ion-col size="3" *ngFor="let menu of menuList | filter:filterTerm">
+            <ion-card style="height: 300px; width: 300px; background-color: white;">
+                <ion-card-header>
+                    <ion-card-title>
+                        <img src="../../assets/food.jpg" style="height: 70px; width: 70px;">
+                        <h1>Name: {{menu.foodName}}</h1>
+                    </ion-card-title>
+                    <ion-card-subtitle>Price: ${{menu.foodPrice}}</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <p>Detials: {{menu.foodDetails}}</p>
+                    <br>
+                    <p>Category: {{menu.foodCategory}}</p>
+                </ion-card-content>
+            </ion-card>
+            <ion-button style="margin-left: -30px;" (click)="addToCart(menu)">
+                Add to cart
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

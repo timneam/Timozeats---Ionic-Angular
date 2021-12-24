@@ -1,0 +1,37 @@
+<ion-header style="height: 100px;">
+</ion-header>
+
+<ion-content style="text-align: center; background-color: white;">
+    <ion-row>
+        <ion-col>
+            <ion-card style="height: 70px; width: 1000px; margin-left: 250px; ">
+                <h1>
+                    Food Information
+                </h1>
+            </ion-card>
+
+            <ion-card style="height: 500px; width: 1000px; margin-left: 250px;">
+                <form [formGroup]="myMenuForm">
+                    <p>Name</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="foodName" value="{{ menuDetails.foodName }}"></ion-input>
+                    </ion-item>
+                    <p>Price</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="foodPrice" value="{{ menuDetails.foodPrice }}"></ion-input>
+                    </ion-item>
+                    <p>Details</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="foodDetails" value="{{ menuDetails.foodDetails }}"></ion-input>
+                    </ion-item>
+                    <p>Category</p>
+                    <ion-item lines="full">
+                        <ion-input type="text" formControlName="foodCategory" value="{{ menuDetails.foodCategory }}"></ion-input>
+                    </ion-item>
+                </form>
+                <ion-button (click)="onUpdate()">Update Menu</ion-button>
+                <ion-button (click)="onDelete()">Delete Menu</ion-button>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>

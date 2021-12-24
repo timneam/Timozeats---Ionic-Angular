@@ -1,0 +1,35 @@
+<ion-app>
+    <ion-router-outlet></ion-router-outlet>
+</ion-app>
+
+<ion-header [translucent]="true">
+    <ion-toolbar style="opacity: 0.8;">
+        <ion-row class="ion-align-items-center" style="background-color: white;">
+            <ion-col size="2">
+                <img src="../../assets/timozeatsIcon.png" style="height: 90px;" class="logo ion-text-left" [routerLink]="['/home']">
+            </ion-col>
+            <ion-col size="10">
+                <div class="navbar" class="ion-text-center" style="background-color: white;">
+                    <ion-button fill="clear" (click)="menuForAdmin()" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Admin
+                    </ion-button>
+                    <ion-button fill="clear" [routerLink]="['/login-and-register']" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Login
+                    </ion-button>
+                    <ion-button fill="clear" [routerLink]="['/cart']" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Cart
+                    </ion-button>
+                    <ion-button fill="clear" [routerLink]="['/trackers']" routerDirection="root" routerLinkActive="active-link" class="link">
+                        trackers
+                    </ion-button>
+                    <ion-button fill="clear" (click)="viewOrderAfterPlacingOrder()" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Orders
+                    </ion-button>
+                    <ion-button (click)="logout()" fill="clear" [routerLink]="['/home']" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Log Out
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>

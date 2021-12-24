@@ -1,0 +1,68 @@
+<ion-content style="text-align: center; background-color: white;">
+    <ion-card style="background-color: white; margin-top: 120px; margin-left: 120px; width: 1300px;">
+        <p style="text-align: center;">My Cart</p>
+    </ion-card>
+
+    <ion-row>
+        <ion-col size="9">
+            <ion-row *ngFor="let cart of userCart">
+                <ion-col size="9">
+                    <ion-card style="background-color: white; width: 1000px; margin-left: 115px;">
+                        <ion-row>
+                            <ion-col size="3">
+                                <img src="../../assets/food.jpg" style="height: 100px; width: 150px;">
+                            </ion-col>
+                            <ion-col size="3">
+                                <p style="margin-top: 25px;">Name: {{cart.foodName}}</p>
+                                <p style="margin-top: 30px;">Price: ${{cart.foodPrice}}</p>
+                            </ion-col>
+                            <ion-col size="3">
+                                <ion-button (click)="downQuantity(cart)" style="margin-top: -5px;">
+                                    <ion-icon name="remove">
+                                    </ion-icon>
+                                </ion-button>
+                                <input class="qty-box" style="width: 50px; height: 30px; margin-top: 30px; text-align: center;" [(ngModel)]="cart.foodQuantity">
+                                <ion-button (click)="addQuantity(cart)" style="margin-top: -5px;">
+                                    <ion-icon name="add">
+                                    </ion-icon>
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="3">
+                                <ion-button style="margin-top: 25px;" (click)="onDelete(cart)">
+                                    Remove food item
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+        <ion-col size="3">
+            <ion-row>
+                <ion-col>
+                    <ion-card style="background-color: white; width: 250px;">
+                        <p>Total Price: $<span id="totalPrice"></span></p>
+                    </ion-card>
+                    <form style="width: 250px; margin-left: 10px;" [formGroup]="addOrderForm">
+                        <ion-item lines="full">
+                            <ion-label position="floating">Name</ion-label>
+                            <ion-input type="text" formControlName="customerName"></ion-input>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label position="floating">Address</ion-label>
+                            <ion-input type="text" formControlName="customerAddress"></ion-input>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label position="floating">Phone Number</ion-label>
+                            <ion-input type="text" formControlName="customerPhoneNumber"></ion-input>
+                        </ion-item>
+                    </form>
+                    <ion-button style="margin-left: -90px;" (click)="addOrder()">
+                        Checkout
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>
